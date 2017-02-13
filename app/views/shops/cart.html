@@ -1,0 +1,25 @@
+<div class="row" ng-controller="ShopCartCtrl">
+  <div class="col-sm-12" ng-repeat="dish in dishes">
+    <div class="singleDish">
+      <a href="{{dish.url}}">
+        <div class="thumbnail-content pull-left">
+          <div class="thumbnail-picture">
+            <img ng-src="{{dish.image.url | nullImageFilter}}" />
+          </div>
+          <div class="order-mask" ng-show="dish.count!=0 && dish.count!=null">
+            {{dish.count}}
+          </div>
+        </div>
+        <div class="text-content pull-left">
+          <p class="food-name">{{dish.name}}</p>
+          <p class="food-price main-color">{{dish.price | currency}}</p>
+          <p class="food-number">今日库存{{dish.stock}}份</p>
+        </div>
+      </a>
+      <div class="btn-group order-button right" role="group" aria-label="...">
+        <button type="button" ng-click="addItem(dish.id,dish.price)" class="add btn btn-info"><i class="fa fa-plus"></i></button>
+        <button type="button" ng-click="minusItem(dish.id,dish.price)" class="remove btn btn-info"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

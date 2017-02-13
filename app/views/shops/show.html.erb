@@ -1,0 +1,47 @@
+<div class="alert alert-success alert-dismissible <%= 'hidden' unless notice %>" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= notice %>
+</div>
+<div class="row" ng-controller="SingleShopCtrl">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1>
+          <%= @shop.name %>
+        </h1>
+        <%= image_tag @shop.image, class: "img-responsive" %>
+        <p>
+          <%= @shop.description %>
+        </p>
+
+
+        <div class="row">
+          <div class="col-md-6"><%= shop_status @shop %></div>
+          <div class="col-md-6"><%= fa_stacked_icon 'truck inverse', base: 'circle', class: 'fa-lg', text: shop_delivery_method(@shop.delivery_method) %></div>
+          <div class="col-md-6"><p class="text-info"><%= fa_stacked_icon 'mobile inverse', base: 'circle', class: 'fa-lg', text: @shop.mobile %></p></div>
+          <div class="col-md-6"><p class="text-info"><%= fa_stacked_icon 'map-marker inverse', base: 'circle', class: 'fa-lg', text: @shop.address %></p></div>
+        </div>
+      </div>
+    </div>
+
+    <%= link_to '编辑', edit_shop_path(@shop), class:"btn btn-primary" %>
+    <%= link_to '返回', shops_path, class:"btn btn-default" %>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">菜单</div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to '全部', [@shop, Item] %>
+          </li>
+          <%= render @shop.categories %>
+        </ul>
+      </div>
+    </div>
+    <%= link_to '新类别', new_shop_category_path(@shop), class:"btn btn-default" %>
+    <%= link_to '新菜品', new_shop_item_path(@shop), class:"btn btn-default" %>
+    <%= link_to '点单', [@shop, Item], class:"btn btn-default" %>
+  </div>
+  </div>
+</div>

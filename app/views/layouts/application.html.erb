@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>送餐网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body ng-app="delivery">
+    <nav class="navbar navbar-default" class="header">
+      <div class="container-fluid" ng-controller="headerCtrl">
+        <div class="navbar-header">
+          <%= link_to '送餐网', root_path, class: 'navbar-brand' %>
+        </div>
+        <div class="navbar-text dish-name">
+          <div id="chn-title">
+            <h3>{{header}}</h3>
+          </div>
+          <img id="dottedUnderline" src="/assets/dottedLine.png">
+          <div id="eng-title">
+            <h4>{{engHeader}}</h4>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 menu">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><%= link_to '美食餐馆', shops_path %></li>
+            <li role="presentation"><a href="#">我的订餐</a></li>
+            <li role="presentation"><a href="#">待点评</a></li>
+          </ul>
+        </div>
+        <div class="col-md-10 content">
+          <%= yield %>
+          <div class="cart-bottom" ng-controller="cartCtrl" ng-show="showCart">
+            <div class="cart-count pull-left">{{orders.getTotalCount() }}</div>
+            <div class="cart-totalPrice pull-left">{{orders.getTotalPrice() | currency}}</div>
+            <a href="{{url}}" class="btn cart-button right">{{buttonName}}</a>
+          </div>
+          <div class="footer text-center">
+            <p>2017@<a class="main-color" href="/">送餐网</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

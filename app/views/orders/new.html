@@ -1,0 +1,63 @@
+<div class="row" id="new-order" ng-controller="ShopOrderCtrl">
+  <div class="col-sm-12">
+    <form name="form" novalidate>
+      <div class="form-group" ng-class="validClass(form.tel)">
+        <label class="col-xs-4">送餐电话</label>
+        <div class="col-xs-8">
+          <input class="form-control" name="tel" ng-model=info.phone required="">
+        </div>
+      </div>
+      <div class="form-group" ng-class="validClass(form.address)">
+        <label class="col-xs-4">送餐地址</label>
+        <div class="col-xs-8">
+          <input class="form-control" name="address" ng-model="info.address" placeholder="如1/151 neerim road, Glen Huntly, Melbourne" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4">送餐时间</label>
+        <div class="col-xs-8">
+          <select class="form-control" ng-options="deliveryTime as deliveryTime.label for deliveryTime in deliveryTimes" ng-model="info.delivery_time">
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4">送餐方式</label>
+        <div class="col-xs-8">
+          <select class="form-control" ng-options="delivery_option as delivery_option.label for delivery_option in info.delivery_options" ng-model="info.delivery_method">
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4">备注</label>
+        <div class="col-xs-8">
+          <textarea class="form-control" ng-model=info.notes placeholder="请输入餐饮偏好及其他要求"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4">配送费</label>
+        <div class="col-xs-8">
+          <p class="" id="deliveryFee">{{info.delivery_fee | currency}}</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4">使用优惠券</label>
+        <div class="col-xs-8">
+          <select class="form-control" ng-init="info.voucher = voucherList[0]" ng-options="voucher as voucher.label for voucher in voucherList track by voucher.id" ng-model="info.voucher">
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4">共计费用</label>
+        <div class="col-xs-8">
+          <p class="" id="totalFee">{{info.total_fee=info.delivery_fee+orderFee | currency}}</p>
+        </div>
+      </div>
+      <div class="col-xs-8 col-xs-offset-4">
+        <button type="button" class="btn btn-primary btn-padding-lr" ng-click="form.$valid && submit()"><i class="fa fa-angle-right"></i> 提交订单
+        </button>
+        <a href="javascript:history.back()" class="btn btn-warning"><i class="fa fa-repeat"></i> 取消</a>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

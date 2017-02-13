@@ -1,0 +1,44 @@
+<div class="alert alert-success alert-dismissible <%= 'hidden' unless notice %>" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= notice %>
+</div>
+
+<div class="row" ng-controller="singleItemCtrl">
+  <div class="col-md-6 ">
+    <div class="food-detail">
+      <div class="food-image">
+        <img ng-src="{{item.image.url | nullImageFilter}}"/>
+        <div class="order-mask" ng-show="item.count!=0 && item.count!=null">
+          {{item.count}}
+        </div>
+      </div>
+      <div class="shadow-info">
+        <h3 class="price">{{item.price | currency}}</h3>
+        <p class="stock">今日库存 {{item.stock}}份</p>
+      </div>
+    </div>
+    <div class="bottom-info">
+      <div class="left thumb-up">
+        <i class="fa fa-thumbs-up icon"></i>
+      </div>
+      <div class="btn-group order-button right" role="group" aria-label="...">
+        <button type="button" ng-click="addItem(item.id,item.price)" class="add btn btn-info"><i class="fa fa-plus"></i></button>
+        <button type="button" ng-click="minusItem(item.id,item.price)" class="remove btn btn-info"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading title">美食介绍</div>
+      <div class="panel-body">
+        {{item.description}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+</p>
+
+<%= link_to '编辑', edit_item_path(@item), class:"btn btn-primary" %>
+<%= link_to '返回', @item.shop, class:"btn btn-default" %>

@@ -1,0 +1,6 @@
+<h1>Editing Category</h1>
+
+<%= render partial: 'form', locals: { shop: @category.shop, category: @category } %>
+
+<%= link_to 'Show', [@category.shop, @category] %> |
+<%= link_to 'Back', [@category.shop, Category] %>

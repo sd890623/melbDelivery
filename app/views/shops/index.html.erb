@@ -1,0 +1,18 @@
+<div class="alert alert-danger alert-dismissible <%= 'hidden' unless notice %>" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= notice %>
+</div>
+
+<h1>美食餐馆</h1>
+
+
+<% @shops.in_groups_of(3, false).each do |shop| %>
+  <div class="row">
+    <%= render shop%>
+  </div>
+  <tr>
+<% end %>
+
+<br>
+
+<%= link_to '新餐馆', new_shop_path, class:"btn btn-default" %>

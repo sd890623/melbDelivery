@@ -1,0 +1,196 @@
+$lightBlue: #1bbae1;
+$lightGrey: #eaedf1;
+$bgGrey: #F2F2F2;
+$darkGrey: rgb(57, 66, 99);
+$red: #fd4b4c;
+$yellow: #F5D218;
+
+body {
+  font-family: "Microsoft YaHei", 微软雅黑, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: rgb(57, 66, 99);
+  background-color: $bgGrey;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+.title {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+small {}
+
+img {
+  max-width: 100%
+}
+
+.fa.icon {
+  color: white;
+}
+
+.left {
+  display: inline-block;
+  float: left;
+}
+
+.right {
+  display: inline-block;
+  float: right;
+}
+
+//header
+.header {
+  margin-bottom: 0px;
+}
+.navbar-default {
+  background-color: $red;
+}
+.navbar-text.dish-name {
+  text-align: center;
+  display: block;
+  width: 80%;
+  float: right;
+  font-size: 18px;
+  color:white;
+  #chn-title h3{
+    margin:0px;
+    line-height: 20px;
+  }
+  #eng-title h4{
+    margin:0px;
+  }
+}
+
+//body
+//component
+.order-mask {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: url(../img/template/ie8_opacity_dark_60.png) repeat;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  line-height: 40px;
+}
+
+//Cart component
+.cart-bottom {
+  background: url(../img/template/ie8_opacity_dark_60.png) repeat;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  div {
+    color: white;
+  }
+  .cart-count {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: none;
+    border: 1px #ffffff solid;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    line-height: 38px;
+  }
+  .cart-totalPrice {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 30px;
+    position: absolute;
+    top: 15px;
+    left: 70px;
+  }
+  .cart-button {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+    background-color: white;
+    color:$darkGrey;
+  }
+}
+
+//content
+.main-color {
+  color: $lightBlue;
+}
+
+.content {
+  background-color: $bgGrey;
+}
+
+.footer {
+  background-color: white;
+  padding: 5px;
+  margin: 15px -15px 0px -15px;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-text.dish-name {
+    width: 100%;
+  }
+  .content {
+  }
+  .footer {
+    margin-top: 0px
+  }
+}
+
+
+//ROR scaffold scss
+
+a {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}

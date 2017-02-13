@@ -1,0 +1,50 @@
+<%= form_for([shop, item]) do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <% if item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+          <ul>
+          <% item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :name, '名称' %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, '类别' %>
+
+        <%= f.collection_select :category_id, item.available_categories, :id, :name, {}, { class: "form-control" } %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price, '价格' %>
+        <%= f.text_field :price, class: "form-control"  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, '简介' %>
+        <%= f.text_area :description, class: "form-control"  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :stock, '库存' %>
+        <%= f.number_field :stock, class: "form-control"  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image, '图片' %>
+        <%= f.file_field :image %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit '提交', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

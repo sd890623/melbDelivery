@@ -1,0 +1,17 @@
+<div class="col-md-6 col-lg-4" >
+  <%= link_to shop do %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= shop.name %>
+          <small><%= shop.description %></small>
+        </h4>
+        <%= image_tag shop.image, class: "img-responsive" %>
+      </div>
+      <div class="panel-body">
+        <span><%= fa_icon "truck", text: "送餐网配送"%></span>
+        <span class="pull-right"><%= shop_status shop %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

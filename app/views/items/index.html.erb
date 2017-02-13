@@ -1,0 +1,42 @@
+<div class="alert alert-danger alert-dismissible <%= 'hidden' unless notice %>" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= notice %>
+</div>
+
+<h1>菜品</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>价格</th>
+      <th>描述</th>
+      <th>今日库存</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr data-id=<%= item.id %>>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.description %></td>
+        <td><%= item.stock %></td>
+        <td><%= link_to '详情', item, class:"btn btn-default" %></td>
+        <td>
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="add btn btn-info"><%= fa_icon "plus" %></button>
+            <button type="button" class="remove btn btn-info"><%= fa_icon "minus" %></button>
+          </div>
+        </td>
+        <td><%= link_to '编辑', item, class:"btn btn-default" %></td>
+        <td><%= link_to '删除', item, class:"btn btn-danger", method: :delete, data: { confirm: '确定删除?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新菜品', new_shop_item_path, class:"btn btn-default" %>

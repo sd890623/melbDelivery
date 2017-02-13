@@ -1,0 +1,27 @@
+Metrics/LineLength:
+  Max: 100
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'test/**/*'
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'Gemfile'
+    - 'app/uploaders/**/*'
+    - 'app/helpers/**/*'
+Style/Documentation:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 12
+Metrics/AbcSize:
+  Max: 18
+Style/AlignParameters:
+  Enabled: false
+Style/EmptyMethod:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

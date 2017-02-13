@@ -1,0 +1,3 @@
+<li class="list-group-item">
+  <%= link_to category.name, [category.shop, category] %> <%= link_to '编辑', [:edit, category.shop, category], class:"btn btn-default" %> <%= link_to '删除', [category.shop, category], class:"btn btn-danger", method: :delete, data: { confirm: '确定删除?' } %>
+</li>
